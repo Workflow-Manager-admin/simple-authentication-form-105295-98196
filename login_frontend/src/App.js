@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import LoginForm from './LoginForm';
+import Home from './Home';
 
 // PUBLIC_INTERFACE
 function App() {
   const [theme, setTheme] = useState('dark'); // Default to dark theme
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Effect to apply theme to document element
   useEffect(() => {
@@ -14,6 +16,11 @@ function App() {
   // PUBLIC_INTERFACE
   const toggleTheme = () => {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
+
+  // Handler for login success
+  const handleLoginSuccess = (username) => {
+    setIsLoggedIn(true);
   };
 
   return (
@@ -26,7 +33,10 @@ function App() {
         >
           {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
         </button>
-        <LoginForm />
+        {isLoggedIn
+          ? <Home />
+          : <LoginForm onLoginSuccess={handleLoginSuccess} />
+        }
       </header>
     </div>
   );

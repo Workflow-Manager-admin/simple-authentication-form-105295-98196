@@ -5,8 +5,12 @@ import "./LoginForm.css";
  * PUBLIC_INTERFACE
  * LoginForm component displaying a centered login form with username and password fields.
  * Styled with a modern, dark theme, using primary (#1976d2), accent (#e91e63), and secondary (#424242) colors.
+ *
+ * Props:
+ *   onLoginSuccess: (function) Called with (username) after successful demo login.
  */
-function LoginForm() {
+
+function LoginForm({ onLoginSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,9 +22,15 @@ function LoginForm() {
       setError("Please enter both username and password.");
       return;
     }
-    setError("");
-    // Submit logic placeholder
-    alert(`Username: ${username}\nPassword: ${'*'.repeat(password.length)}`);
+    // For demo: any username/password where username==='user' and password==='demo' is valid
+    if (username === "user" && password === "demo") {
+      setError("");
+      if (typeof onLoginSuccess === "function") {
+        onLoginSuccess(username);
+      }
+    } else {
+      setError("Incorrect username or password. (Try user/demo)");
+    }
   };
 
   return (
