@@ -1,0 +1,111 @@
+.login-form-outer {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  z-index: 0;
+}
+
+.login-form {
+  background: var(--login-bg, #222b34);
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 40px 8px rgba(25, 118, 210, 0.13), 0 0.5px 4px rgba(66,66,66,0.12);
+  width: 340px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1.5px solid var(--login-secondary, #424242);
+}
+
+.login-form-title {
+  text-align: center;
+  color: var(--login-primary, #1976d2);
+  margin-bottom: 0.5rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-shadow: 0 1px 7px #19263422;
+}
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-label {
+  color: var(--login-label, #e0e0e0);
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.login-form-input {
+  background: var(--login-secondary, #424242);
+  border: 1.5px solid var(--login-border, #1976d2);
+  color: #fff;
+  border-radius: 7px;
+  padding: 0.75rem 13px;
+  font-size: 1.09rem;
+  font-weight: 400;
+  outline: none;
+  transition: border 0.2s;
+  caret-color: var(--login-accent, #e91e63);
+}
+
+.login-form-input:focus {
+  border: 2px solid var(--login-accent, #e91e63);
+}
+
+.login-form-error {
+  color: var(--login-accent, #e91e63);
+  background: rgba(233, 30, 99, 0.11);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.93rem;
+  margin-bottom: -0.5rem;
+  text-align: center;
+}
+
+.login-form-submit {
+  padding: 0.86rem 0;
+  background: var(--login-primary, #1976d2);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.09rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 12px rgba(25, 118, 210, 0.08);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+}
+
+.login-form-submit:hover, .login-form-submit:focus {
+  background: var(--login-accent, #e91e63);
+  box-shadow: 0 0 0 2.5px var(--login-primary, #1976d2) inset;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 1.2rem 0.6rem 1.1rem 0.6rem;
+    width: 96vw;
+  }
+  .login-form-title {
+    font-size: 1.22rem;
+  }
+}
+
+:root, [data-theme="dark"] {
+  --login-primary: #1976d2;
+  --login-accent: #e91e63;
+  --login-secondary: #424242;
+  --login-bg: #222b34;
+  --login-label: #eee;
+  --login-border: #1976d2;
+}
